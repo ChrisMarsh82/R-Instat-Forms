@@ -1,0 +1,11 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/ProjectEvaluation
+/.vs/R-Instat-Forms/DesignTimeBuild
+/.vs/R-Instat-Forms/FileContentIndex
+/.vs/R-Instat-Forms/v17
+/angularapp/obj/Debug
+/webapi/bin/Debug/net7.0
+/webapi/obj/Debug/net7.0
