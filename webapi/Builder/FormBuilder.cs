@@ -1,4 +1,5 @@
-﻿using webapi.Enumeration;
+﻿using ScriptBuilder.Script;
+using webapi.Enumeration;
 using webapi.Model;
 using webapi.WorkFlowControl;
 using webapi.WorkFlowControl.Describe;
@@ -24,11 +25,27 @@ namespace webapi.Builder
         {
             Form form = new Form();
             form.Id = id;
+            form.Controls = new List<Control>();
             WorkFlowControlBase? formDefinition =  GetFormClass((FormList)id);
-            form.Controls = (IEnumerable<Control>?)formDefinition.Controls;
-      
+            foreach (ControlBase control in formDefinition.Controls)
+            {
+                form.Controls.Add(control.ControlModel);
+            }
+            form.Name = formDefinition.Name;
+            form.Description = formDefinition.Description;
 
             return form;
+        }
+
+       
+
+        internal string? GetRScriptFromForm(int id, IEnumerable<ControlValue>? controlValues)
+        {
+            WorkFlowControlBase? formDefinition = GetFormClass((FormList)id);
+            RWorkFlow workFlowScript = formDefinition.PopulateScripts(controlValues);
+            string justAString = string.Join(" ", workFlowScript.GetAllScripts());
+            return justAString;
+            
         }
     }
 }

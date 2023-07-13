@@ -24,3 +24,5 @@ interface WeatherForecast {
   temperatureF: number;
   summary: string;
 }
+
+//<router-outlet > </router-outlet>

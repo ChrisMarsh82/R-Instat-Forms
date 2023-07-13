@@ -1,0 +1,12 @@
+C:\Source\CM82\R-Instat-Forms\ScriptBuilder\obj\Debug\net7.0\ScriptBuilder.csproj.AssemblyReference.cache
+C:\Source\CM82\R-Instat-Forms\ScriptBuilder\obj\Debug\net7.0\ScriptBuilder.GeneratedMSBuildEditorConfig.editorconfig
+C:\Source\CM82\R-Instat-Forms\ScriptBuilder\obj\Debug\net7.0\ScriptBuilder.AssemblyInfoInputs.cache
+C:\Source\CM82\R-Instat-Forms\ScriptBuilder\obj\Debug\net7.0\ScriptBuilder.AssemblyInfo.cs
+C:\Source\CM82\R-Instat-Forms\ScriptBuilder\obj\Debug\net7.0\ScriptBuilder.csproj.CoreCompileInputs.cache
+C:\Source\CM82\R-Instat-Forms\ScriptBuilder\bin\Debug\net7.0\ScriptBuilder.deps.json
+C:\Source\CM82\R-Instat-Forms\ScriptBuilder\bin\Debug\net7.0\ScriptBuilder.dll
+C:\Source\CM82\R-Instat-Forms\ScriptBuilder\bin\Debug\net7.0\ScriptBuilder.pdb
+C:\Source\CM82\R-Instat-Forms\ScriptBuilder\obj\Debug\net7.0\ScriptBuilder.dll
+C:\Source\CM82\R-Instat-Forms\ScriptBuilder\obj\Debug\net7.0\refint\ScriptBuilder.dll
+C:\Source\CM82\R-Instat-Forms\ScriptBuilder\obj\Debug\net7.0\ScriptBuilder.pdb
+C:\Source\CM82\R-Instat-Forms\ScriptBuilder\obj\Debug\net7.0\ref\ScriptBuilder.dll
