@@ -80,7 +80,7 @@ namespace ScriptBuilder.Script
 
         public void AddParameter(string param, bool value)
         {
-            AddParameter(param, value.ToString());
+            AddParameter(param, value.ToString().ToUpper());
         }
 
         public void AddParameter(string param, int value)
@@ -115,11 +115,12 @@ namespace ScriptBuilder.Script
 
         public string ToScript()
         {
+            string assigned = "";
             if (!string.IsNullOrEmpty(_assignment))
             {
-                _assignment += " <- ";
+                assigned = _assignment + " <- ";
             }
-            return _assignment + _command + "(" + _parameters + ")";
+            return assigned + _command + "(" + _parameters + ")";
         }
 
         public void SetAssignTo(object getParameter)

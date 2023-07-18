@@ -1,0 +1,8 @@
+<div *ngIf="rControl">
+  <label for="textBox">{{ rControl.control.label }}</label>
+  <input [(ngModel)]="rControl.values.values[0]" type="text" [id]="rControl.control.id" name="textBox" placeholder="Enter text here" [title]="rControl.control.help">
+
+
+
+
+</div>

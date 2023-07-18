@@ -1,0 +1,7 @@
+{
+  "/RInstatForm/*": {
+    "target": "https://localhost:7238",
+    "secure": false,
+    "logLevel": "debug"
+  }
+}

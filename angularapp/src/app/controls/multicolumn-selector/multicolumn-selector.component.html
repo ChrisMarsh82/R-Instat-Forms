@@ -1,0 +1,8 @@
+
+<div *ngIf="rControl">
+  <label for="multiselectColumn">{{rControl.control.label}}</label>
+  <p-multiSelect [(ngModel)]="rControl.values.values" [options]="testColumns" ></p-multiSelect>
+</div>
+
+
+

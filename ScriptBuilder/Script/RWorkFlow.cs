@@ -17,6 +17,7 @@ namespace ScriptBuilder.Script
         private string? _objectFormat; // RObjectFormat
         private bool _asFile;
         private bool _runAddAndGetObjectScripts = false;
+        private string? _data_name;
 
         public RFunction PreScript
         {
@@ -34,11 +35,11 @@ namespace ScriptBuilder.Script
         {
             RFunction rFunction = new RFunction();
             rFunction.SetDataBookCommand("add_object");
-            rFunction.AddParameter("data_name", "\"airquality\"");
-            rFunction.AddParameter("object_name", "\"last_summary\"");
-            rFunction.AddParameter("object_type_label", _objectTypeLabel);
-            rFunction.AddParameter("object_format", _objectFormat);
-            rFunction.AddParameter("object", "last_summary");
+            rFunction.AddParameter("data_name", _data_name, true);
+            rFunction.AddParameter("object_name",   _script?.GetAssigned(), true);
+            rFunction.AddParameter("object_type_label", _objectTypeLabel, true);
+            rFunction.AddParameter("object_format", _objectFormat, true);
+            rFunction.AddParameter("object", _script?.GetAssigned());
             return rFunction.ToScript();
         }
 
@@ -46,8 +47,8 @@ namespace ScriptBuilder.Script
         {
             RFunction rFunction = new RFunction();
             rFunction.SetDataBookCommand("get_object_data");
-            rFunction.AddParameter("data_name", "\"airquality\"");
-            rFunction.AddParameter("object_name", "\"last_summary\"");
+            rFunction.AddParameter("data_name", _data_name, true);
+            rFunction.AddParameter("object_name", _script?.GetAssigned(), true);
             rFunction.AddParameter("as_file", _asFile);
             return rFunction.ToScript();
         }
@@ -64,7 +65,7 @@ namespace ScriptBuilder.Script
             {
                 allAssigned.Add(_preScript.GetAssigned());
             }
-            if (_script.GetAssigned() != "")
+            if (_script?.GetAssigned() != "")
             {
                 allAssigned.Add(_script.GetAssigned());
             }
@@ -75,7 +76,7 @@ namespace ScriptBuilder.Script
         {
             RFunction rFunction = new RFunction();
             rFunction.SetBasicRCommand("rm");
-            rFunction.AddParameter("list", GetAllAssignedObjects());
+            rFunction.AddParameter("list", GetAllAssignedObjects(),true);
             return rFunction.ToScript();
         }
 
@@ -99,8 +100,9 @@ namespace ScriptBuilder.Script
             return scripts;
         }
 
-        public void SetDatabookObjectLog(RObjectTypeLabel objectTypeLabel, RObjectFormat objectFormat, bool asFile)
+        public void SetDatabookObjectLog(string dataName, RObjectTypeLabel objectTypeLabel, RObjectFormat objectFormat, bool asFile)
         {
+            _data_name = dataName;
             _objectTypeLabel = objectTypeLabel.GetDescription();
             _objectFormat = objectFormat.GetDescription();
             _asFile = asFile;

@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Newtonsoft.Json;
 using System;
+using System.Net;
 using webapi.Builder;
 using webapi.Enumeration;
 using webapi.Extension;
@@ -33,12 +34,18 @@ namespace webapi.Controllers
             return allForms;
         }
 
-
-        [HttpGet("forms/{id:int}")]
-        public Form GetForm(int id)
+        [HttpGet("allforms/{id}")]
+        public Form GetForms(int id)        
         {
             FormBuilder formbuilder = new FormBuilder();
             return formbuilder.GetForm(id);
+        }
+
+        [HttpGet("test")]
+        public Form GetTest()
+        {
+            FormBuilder formbuilder = new FormBuilder();
+            return formbuilder.GetForm(1);
         }
 
         [HttpPost("rscript")]
@@ -46,7 +53,7 @@ namespace webapi.Controllers
         {
             FormBuilder formbuilder = new();
             string rScript = formbuilder.GetRScriptFromForm(formValue.id, formValue.ControlValues);
-            return rScript;
+            return Ok(rScript);
         }
 
 

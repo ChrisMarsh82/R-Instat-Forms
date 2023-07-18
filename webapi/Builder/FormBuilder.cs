@@ -25,12 +25,13 @@ namespace webapi.Builder
         {
             Form form = new Form();
             form.Id = id;
-            form.Controls = new List<Control>();
+            List<Control> controls = new List<Control>();
             WorkFlowControlBase? formDefinition =  GetFormClass((FormList)id);
             foreach (ControlBase control in formDefinition.Controls)
             {
-                form.Controls.Add(control.ControlModel);
+                controls.Add(control.ControlModel);
             }
+            form.Controls = controls;
             form.Name = formDefinition.Name;
             form.Description = formDefinition.Description;
 

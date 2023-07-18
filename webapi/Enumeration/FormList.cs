@@ -5,11 +5,11 @@ namespace webapi.Enumeration
     public enum FormList
     {
         [Description("One Variable Summary")]
-        OneVariableSummarise = 0,
+        OneVariableSummarise = 1,
         [Description("One Variable Custom Summary")]
-        OneVariableSummariseCustom = 1,
+        OneVariableSummariseCustom = 2,
         [Description("One Variable Skim Summary")]
-        OneVariableSummariseSkim = 2
+        OneVariableSummariseSkim = 3
 
     }
 }

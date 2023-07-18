@@ -1,0 +1,4 @@
+<div *ngIf="rControl">
+  <label for="number">{{rControl.control.label}}</label>
+  <input [(ngModel)]="rControl.values.values[0]" type="number" [id]="rControl.control.id" name="number"  [min]="rControl.control.min" [max]="rControl.control.max" [title]="rControl.control.help" (input)="onInputChange()">
+</div>

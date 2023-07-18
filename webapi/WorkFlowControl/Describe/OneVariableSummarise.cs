@@ -11,28 +11,17 @@ namespace webapi.WorkFlowControl.Describe
 {
     public class OneVariableSummarise : WorkFlowControlBase
     {
-
-
-
-
         private DataFrameSelector? dataframeSelector ;
         private MultipleColumnSelector? coloumnSelector ;
         private NumberSelector? maxLevelsSelector ;
-        private TextSelector? summaryNameSelector;
-
-        
+        private TextSelector? summaryNameSelector;             
 
         public OneVariableSummarise() 
         {
             Name = "One Variable Summary";
             Description = "Here you can create a great summary with one variable";
             Id = (int)FormList.OneVariableSummarise;
-
             CreateAllSelectors();
-
-
-       
-
         }
 
         protected override void CreateAllSelectors()
@@ -65,14 +54,16 @@ namespace webapi.WorkFlowControl.Describe
             AddValuesToSelectors(controlValues);
             RWorkFlow RCode;
             RCode = new RWorkFlow();
-            RCode.SetDatabookObjectLog(RObjectTypeLabel.Summary, RObjectFormat.Text, true);
-
+            RCode.SetDatabookObjectLog(dataframeSelector.GetParameter(),RObjectTypeLabel.Summary, RObjectFormat.Text, true);
             RCode.Script = new RFunction();
             RCode.Script.SetBasicRCommand("summary");
+            RCode.PreScript = dataframeSelector.GetRFunction();
+            RCode.PreScript.SetAssignTo(dataframeSelector.GetParameter());
             RCode.Script.SetAssignTo(summaryNameSelector.GetParameter());
-            RCode.Script.AddParameter("object", coloumnSelector.GetRFunction());
-            RCode.Script.AddParameter("na.rm", "FALSE");
+            RCode.Script.AddParameter("data", dataframeSelector.GetParameter());
+            RCode.Script.AddParameter("object", coloumnSelector.GetRFunction());            
             RCode.Script.AddParameter("maxsum", maxLevelsSelector.GetParameter());
+            RCode.Script.AddParameter("na.rm", "FALSE");
             return RCode;
         }
     }

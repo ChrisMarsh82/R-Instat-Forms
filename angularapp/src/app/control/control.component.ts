@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { RControlAndValues, RInstatControl } from '../shared.interface'
 
 @Component({
   selector: 'app-control',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./control.component.css']
 })
 export class ControlComponent {
-
+  @Input() rControl?: RControlAndValues//RInstatControl | undefined
 }
+
+

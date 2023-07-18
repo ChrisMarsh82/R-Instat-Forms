@@ -1,0 +1,5 @@
+
+<div *ngIf="rControl">
+  <label for="dataframeselect">{{rControl.control.label}}</label>
+  <p-multiSelect [(ngModel)]="rControl.values.values" [options]="testDataFrames"></p-multiSelect>
+</div>

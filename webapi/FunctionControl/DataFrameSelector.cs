@@ -32,5 +32,13 @@ namespace webapi.FunctionControl
             rFunction.AddParameter("data_name", GetParameterWithQuotes());
             return rFunction;
         }
+
+        internal RFunction GetRFunction()
+        {
+            RFunction rFunction = new RFunction();
+            rFunction.SetDataBookCommand("get_data_frame");
+            rFunction.AddParameter("data_name", GetParameterWithQuotes());
+            return rFunction;
+        }
     }
 }

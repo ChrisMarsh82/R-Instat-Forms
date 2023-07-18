@@ -1,1 +1,12 @@
-<p>form works!</p>
+<h1>{{ rform.name }}</h1>
+<p>{{ rform.description }}</p>
+
+<p *ngFor="let control of rControlAndValues">
+  <app-control [rControl]="control"></app-control>
+</p>
+
+<button class="btn btn-primary" (click)="onButtonClick()">Generate R Code</button>
+<p>Warning: no validation yet so please fill everything in</p>
+<div *ngIf="rScript">
+  <h2>{{rScript}}</h2>
+</div>

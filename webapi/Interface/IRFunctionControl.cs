@@ -6,6 +6,6 @@ namespace webapi.Interface
 {
     public interface IRFunctionControl
     {
-        internal RFunction GetRFunction();
+        public RFunction GetRFunction();
     }
 }

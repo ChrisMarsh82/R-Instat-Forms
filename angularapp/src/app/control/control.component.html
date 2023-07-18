@@ -1,1 +1,35 @@
-<p>control works!</p>
+<div *ngIf="rControl">
+  <div [ngSwitch]="rControl.control.controlType">
+    <div *ngSwitchCase="1">
+      <app-text-selector [rControl]="rControl"></app-text-selector>
+    </div>
+    <div *ngSwitchCase="2">
+      <app-text-selector [rControl]="rControl"></app-text-selector>
+    </div>
+    <div *ngSwitchCase="3">
+      <app-number-selector [rControl]="rControl"></app-number-selector>
+    </div>
+    <div *ngSwitchCase="4">
+      <app-dataframe-selector [rControl]="rControl"></app-dataframe-selector>
+    </div>
+    <div *ngSwitchCase="5">
+      <app-text-selector [rControl]="rControl"></app-text-selector>
+    </div>
+    <div *ngSwitchCase="6">
+      <app-multicolumn-selector [rControl]="rControl"></app-multicolumn-selector>
+    </div>
+    <div *ngSwitchDefault>
+      <p>could not find the control</p>
+    </div>
+  </div>
+
+  <!--TextSelector = 1,
+  CheckBoxSelector = 2,
+  NumberSelector = 3,
+  DataframeSelector = 4,
+  SingleColumnSelector = 5,
+  MultipleColumnSelector = 6,-->
+
+
+</div>
+
